@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>DOM CRUD Operations</h1>
+    <p id="changeex">Changing Example</p>
+    <button onclick="onClick()">Click</button>
+    <hr>
+    <!-- Deleting an Element -->
+    <p id="remove">Remove Example</p>
+    <hr>
+    <!-- Editing an Attribute of an Element -->
+    <button id="btn1" onclick="changeimage()">Show My Feathers</button>
+    <img id="byy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWEggH2OpR5mn41h4cbnIKe2MogUGidcAOCQ&s">
+    <hr>
+    <script>
+        //  Creating and Appending an Element
+        const element = document.createElement('div')
+        element.id = "Createexample"
+        element.style.backgroundColor = "green"
+        element.style.fontSize = "20px"
+        const addText = element.append("Hello, World!")
+        console.log(element)
+        document.body.append(element)
+
+        // Changing the Content of an Existing Element
+        function onClick() {
+            const change = document.getElementById('changeex').textContent = 'Updated text Content'
+        }
+
+        // Creating and Appending a List of Items
+        const ui = document.createElement('ul')
+        const items = ['item 1', 'item 2', 'item 3', 'item 4']
+        items.forEach(text => {
+            const li = document.createElement('li')
+            li.textContent = text
+            ui.appendChild(li)
+        })
+        document.body.appendChild(ui)
+
+        // Editing an Attribute of an Element
+        function changeimage() {
+            const ele = document.getElementById('byy')
+            ele.setAttribute('src', 'https://static.vecteezy.com/system/resources/thumbnails/038/264/152/small/ai-generated-feather-from-a-peacock-isolated-png.png')
+        }
+        //   Deleting an Element
+        const elementrem = document.getElementById('remove')
+        elementrem.remove()
+    </script>
+</body>
+
+</html>
